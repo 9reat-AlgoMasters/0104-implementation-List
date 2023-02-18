@@ -21,6 +21,10 @@ public class SinglyLinkedList implements List {
         return 0;
     }
     
+    public int getFirst() {
+        return 0;
+    }
+    
     @Override
     public void add(int num) {
     
