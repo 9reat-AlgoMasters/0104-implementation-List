@@ -26,6 +26,13 @@ class SinglyLinkedListTest {
         list.add(5);
     }
     
+    @DisplayName("getFirst() 테스트")
+    @Test
+    void getFirstTest() {
+        assertThat(list.getFirst()).isEqualTo(1);
+        
+    }
+    
     @DisplayName("size() 테스트")
     @Test
     void sizeTest() {
