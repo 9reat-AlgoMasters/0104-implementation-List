@@ -36,6 +36,10 @@ public class SinglyLinkedList implements List {
         return 0;
     }
     
+    public int removeFirst() {
+        return 0;
+    }
+    
     @Override
     public void clear() {
     
