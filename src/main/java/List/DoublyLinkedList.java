@@ -39,8 +39,8 @@ public class DoublyLinkedList implements List {
     
     }
     
-    public int addFirst() {
-        return 0;
+    public void addFirst(int num) {
+    
     }
     
     @Override
