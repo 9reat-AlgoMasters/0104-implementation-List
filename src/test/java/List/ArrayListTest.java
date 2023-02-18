@@ -114,6 +114,7 @@ class ArrayListTest {
     @Test
     void removeTest1() {
         list.remove(0);
+        assertThat(list.get(0)).isEqualTo(-2);
         assertThat(list.size()).isEqualTo(4);
     }
     
