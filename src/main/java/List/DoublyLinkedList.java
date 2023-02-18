@@ -21,6 +21,14 @@ public class DoublyLinkedList implements List {
         return 0;
     }
     
+    public int getFirst() {
+        return 0;
+    }
+    
+    public int getLast() {
+        return 0;
+    }
+    
     @Override
     public void add(int num) {
     
@@ -29,6 +37,10 @@ public class DoublyLinkedList implements List {
     @Override
     public void add(int index, int num) {
     
+    }
+    
+    public int addFirst() {
+        return 0;
     }
     
     @Override
