@@ -113,7 +113,16 @@ class SinglyLinkedListTest {
     @DisplayName("remove() - 원소 제거 테스트")
     @Test
     void removeTest1() {
-        list.remove(0);
+        list.remove(1);
+        assertThat(list.get(1)).isEqualTo(3);
+        assertThat(list.size()).isEqualTo(4);
+    }
+    
+    @DisplayName("removeFirst() 테스트")
+    @Test
+    void removeFirstTest() {
+        int removedValue = list.removeFirst();
+        assertThat(removedValue).isEqualTo(1);
         assertThat(list.get(0)).isEqualTo(-2);
         assertThat(list.size()).isEqualTo(4);
     }
