@@ -26,11 +26,33 @@ class DoublyLinkedListTest {
         list.add(5);
     }
     
+    @DisplayName("getFirst() 테스트")
+    @Test
+    void getFirstTest() {
+        assertThat(list.getFirst()).isEqualTo(1);
+        
+    }
+    
+    @DisplayName("getLast() 테스트")
+    @Test
+    void getLastTest() {
+        assertThat(list.getLast()).isEqualTo(5);
+        
+    }
+    
     @DisplayName("size() 테스트")
     @Test
     void sizeTest() {
         assertThat(list.size()).isEqualTo(5);
         
+    }
+    
+    @DisplayName("addFirst() 테스트")
+    @Test
+    void addFirstTest() {
+        list.addFirst(0);
+        assertThat(list.getFirst()).isEqualTo(0);
+        assertThat(list.size()).isEqualTo(6);
     }
     
     @DisplayName("isEmpty() - true 테스트")
@@ -113,8 +135,26 @@ class DoublyLinkedListTest {
     @DisplayName("remove() - 원소 제거 테스트")
     @Test
     void removeTest1() {
-        list.remove(0);
-        assertThat(list.get(0)).isEqualTo(-2);
+        list.remove(1);
+        assertThat(list.get(1)).isEqualTo(3);
+        assertThat(list.size()).isEqualTo(4);
+    }
+    
+    @DisplayName("removeFirst() 테스트")
+    @Test
+    void removeFirstTest() {
+        int removedValue = list.removeFirst();
+        assertThat(removedValue).isEqualTo(1);
+        assertThat(list.getFirst()).isEqualTo(-2);
+        assertThat(list.size()).isEqualTo(4);
+    }
+    
+    @DisplayName("removeLast() 테스트")
+    @Test
+    void removeLastTest() {
+        int removedValue = list.removeLast();
+        assertThat(removedValue).isEqualTo(5);
+        assertThat(list.getLast()).isEqualTo(-4);
         assertThat(list.size()).isEqualTo(4);
     }
     
