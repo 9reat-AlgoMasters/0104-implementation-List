@@ -36,6 +36,14 @@ public class DoublyLinkedList implements List {
         return 0;
     }
     
+    public int removeFirst() {
+        return 0;
+    }
+    
+    public int removeLast() {
+        return 0;
+    }
+    
     @Override
     public void clear() {
     
