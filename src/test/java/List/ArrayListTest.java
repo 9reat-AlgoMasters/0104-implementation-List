@@ -1,5 +1,6 @@
 package List;
 
+import exceptions.CustomIndexOutOfBoundsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -82,7 +83,7 @@ class ArrayListTest {
     @ValueSource(ints = {-1, 5, 10})
     void getTest2(int index) {
         assertThatThrownBy(() -> list.get(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> getTest2Params() {
@@ -130,7 +131,7 @@ class ArrayListTest {
     @ValueSource(ints = {-1, 5, 10})
     void removeTest3(int index) {
         assertThatThrownBy(() -> list.remove(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     @DisplayName("clear() 테스트")

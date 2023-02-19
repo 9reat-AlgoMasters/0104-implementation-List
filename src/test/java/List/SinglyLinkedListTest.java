@@ -1,5 +1,7 @@
 package List;
 
+import exceptions.CustomIndexOutOfBoundsException;
+import exceptions.CustomNoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,11 +10,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.assertj.core.api.Assertions.assertThatCode;
 
 class SinglyLinkedListTest {
     static SinglyLinkedList list;
@@ -39,7 +39,7 @@ class SinglyLinkedListTest {
     void getFirstTest2() {
         SinglyLinkedList list2 = new SinglyLinkedList();
         assertThatThrownBy(list2::getFirst)
-                .isInstanceOf(NoSuchElementException.class);
+                .isInstanceOf(CustomNoSuchElementException.class);
     }
     
     @DisplayName("size() 테스트")
@@ -98,7 +98,7 @@ class SinglyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void getTest2(int index) {
         assertThatThrownBy(() -> list.get(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> getTest2Params() {
@@ -148,7 +148,7 @@ class SinglyLinkedListTest {
     void removeFirstTest2() {
         SinglyLinkedList list2 = new SinglyLinkedList();
         assertThatThrownBy(list2::removeFirst)
-                .isInstanceOf(NoSuchElementException.class);
+                .isInstanceOf(CustomNoSuchElementException.class);
     }
     
     @DisplayName("remove() - 원소 제거 후 반환값 테스트")
@@ -163,7 +163,7 @@ class SinglyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void removeTest3(int index) {
         assertThatThrownBy(() -> list.remove(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     @DisplayName("clear() 테스트")
