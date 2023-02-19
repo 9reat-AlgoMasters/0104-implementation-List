@@ -1,6 +1,6 @@
 package exceptions;
 
-public class CustomNoSuchElementException extends Exception {
+public class CustomNoSuchElementException extends RuntimeException {
     public CustomNoSuchElementException() {
         this("해당 원소는 존재하지 않음");
     }
