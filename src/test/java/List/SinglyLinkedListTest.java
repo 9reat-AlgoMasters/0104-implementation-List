@@ -131,7 +131,8 @@ class SinglyLinkedListTest {
         return Stream.of(
                 Arguments.of(0, -1),
                 Arguments.of(1, 3),
-                Arguments.of(4, -2)
+                Arguments.of(4, -2),
+                Arguments.of(5,4)
         );
     }
     
