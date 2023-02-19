@@ -1,5 +1,6 @@
 package List;
 
+import exceptions.CustomIndexOutOfBoundsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -82,7 +83,7 @@ class ArrayListTest {
     @ValueSource(ints = {-1, 5, 10})
     void getTest2(int index) {
         assertThatThrownBy(() -> list.get(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> getTest2Params() {
@@ -98,9 +99,17 @@ class ArrayListTest {
     @DisplayName("add() - 특정 인덱스에 추가하는 테스트")
     @ParameterizedTest(name = "test {index}")
     @MethodSource("addIndexTestParams")
-    void addIndexTest(int index, int number) {
+    void addIndexTest1(int index, int number) {
         list.add(index, number);
         assertThat(list.get(index)).isEqualTo(number);
+    }
+    
+    @DisplayName("add() - 올바르지 않은 인덱스에 추가시 예외처리 테스트")
+    @ParameterizedTest(name = "test {index}")
+    @ValueSource(ints = {-1, 6})
+    void addIndexTest2(int index) {
+        assertThatThrownBy(() -> list.add(index, 1))
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> addIndexTestParams() {
@@ -130,7 +139,7 @@ class ArrayListTest {
     @ValueSource(ints = {-1, 5, 10})
     void removeTest3(int index) {
         assertThatThrownBy(() -> list.remove(index))
-                .isInstanceOf(IndexOutOfBoundsException.class);
+                .isInstanceOf(CustomIndexOutOfBoundsException.class);
     }
     
     @DisplayName("clear() 테스트")
