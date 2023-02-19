@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
@@ -28,9 +29,17 @@ class SinglyLinkedListTest {
     
     @DisplayName("getFirst() 테스트")
     @Test
-    void getFirstTest() {
+    void getFirstTest1() {
         assertThat(list.getFirst()).isEqualTo(1);
         
+    }
+    
+    @DisplayName("getFirst() - 비어있을 때 예외처리 테스트")
+    @Test
+    void getFirstTest2() {
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        assertThatThrownBy(list2::getFirst)
+                .isInstanceOf(NoSuchElementException.class);
     }
     
     @DisplayName("size() 테스트")
@@ -89,7 +98,7 @@ class SinglyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void getTest2(int index) {
         assertThatThrownBy(() -> list.get(index))
-                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
+                .isInstanceOf(IndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> getTest2Params() {
@@ -127,11 +136,19 @@ class SinglyLinkedListTest {
     
     @DisplayName("removeFirst() 테스트")
     @Test
-    void removeFirstTest() {
+    void removeFirstTest1() {
         int removedValue = list.removeFirst();
         assertThat(removedValue).isEqualTo(1);
         assertThat(list.get(0)).isEqualTo(-2);
         assertThat(list.size()).isEqualTo(4);
+    }
+    
+    @DisplayName("removeFirst() - 비어있을 때 예외처리 테스트")
+    @Test
+    void removeFirstTest2() {
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        assertThatThrownBy(list2::removeFirst)
+                .isInstanceOf(NoSuchElementException.class);
     }
     
     @DisplayName("remove() - 원소 제거 후 반환값 테스트")
@@ -146,7 +163,7 @@ class SinglyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void removeTest3(int index) {
         assertThatThrownBy(() -> list.remove(index))
-                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
+                .isInstanceOf(IndexOutOfBoundsException.class);
     }
     
     @DisplayName("clear() 테스트")
