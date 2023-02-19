@@ -104,7 +104,7 @@ class DoublyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void getTest2(int index) {
         assertThatThrownBy(() -> list.get(index))
-                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
+                .isInstanceOf(IndexOutOfBoundsException.class);
     }
     
     private static Stream<Arguments> getTest2Params() {
@@ -170,7 +170,7 @@ class DoublyLinkedListTest {
     @ValueSource(ints = {-1, 5, 10})
     void removeTest3(int index) {
         assertThatThrownBy(() -> list.remove(index))
-                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
+                .isInstanceOf(IndexOutOfBoundsException.class);
     }
     
     @DisplayName("clear() 테스트")
