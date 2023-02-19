@@ -1,5 +1,7 @@
 package List;
 
+import exceptions.CustomIndexOutOfBoundsException;
+
 import java.util.Arrays;
 
 public class ArrayList implements List {
@@ -38,6 +40,9 @@ public class ArrayList implements List {
     
     @Override
     public int get(int index) {
+        if(index <0 || index > size-1) {
+            throw new CustomIndexOutOfBoundsException();
+        }
         return arr[index];
     }
     
@@ -54,6 +59,9 @@ public class ArrayList implements List {
     
     @Override
     public void add(int index, int num) {
+        if(index <0 || index > size-1) {
+            throw new CustomIndexOutOfBoundsException();
+        }
         // 배열이 사이즈를 넘은 경우
         if (size == arr.length) {
             resize();
@@ -69,7 +77,16 @@ public class ArrayList implements List {
     
     @Override
     public int remove(int index) {
-        int t = arr[index];
+//        if(index <0 || index > size-1) {
+//            throw new CustomIndexOutOfBoundsException();
+//        }
+        int t;
+        try {
+            t = arr[index];
+        } catch (Exception e) {
+            throw new CustomIndexOutOfBoundsException();
+        }
+
         for (int i = index; i < size-1; i++) {
             arr[index] = arr[index + 1];
         }
