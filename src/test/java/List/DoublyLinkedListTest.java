@@ -1,5 +1,6 @@
 package List;
 
+import com.sun.org.apache.xpath.internal.Arg;
 import exceptions.CustomIndexOutOfBoundsException;
 import exceptions.CustomNoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
@@ -153,7 +154,8 @@ class DoublyLinkedListTest {
         return Stream.of(
                 Arguments.of(0, -1),
                 Arguments.of(1, 3),
-                Arguments.of(4, -2)
+                Arguments.of(4, -2),
+                Arguments.of(5,4)
         );
     }
     
