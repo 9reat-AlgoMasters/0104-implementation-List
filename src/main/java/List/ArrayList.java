@@ -56,7 +56,7 @@ public class ArrayList implements List {
     }
     
     @Override
-    public void add(int index, int num) {
+    public void add(int index, int num) throws CustomIndexOutOfBoundsException{
         if(index > size || index < 0){
             throw new CustomIndexOutOfBoundsException();
         }
