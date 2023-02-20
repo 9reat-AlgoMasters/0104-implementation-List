@@ -2,6 +2,7 @@ package List;
 
 import com.sun.org.apache.xpath.internal.objects.XNull;
 import exceptions.CustomIndexOutOfBoundsException;
+import exceptions.CustomNoSuchElementException;
 
 import java.util.NoSuchElementException;
 
@@ -56,8 +57,9 @@ public class SinglyLinkedList implements List {
     
     public int getFirst() {
         Node headNode = head;
+
         if (headNode == null) {
-            throw new CustomIndexOutOfBoundsException();
+            throw new CustomNoSuchElementException();
         } else {
             return headNode.data;
         }
@@ -162,7 +164,7 @@ public class SinglyLinkedList implements List {
         Node headNode = head;
 
         if (headNode == null) {
-            throw new CustomIndexOutOfBoundsException();
+            throw new CustomNoSuchElementException();
         }
 
         else {
