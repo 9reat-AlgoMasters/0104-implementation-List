@@ -1,6 +1,5 @@
 package List;
 
-import com.sun.org.apache.xpath.internal.Arg;
 import exceptions.CustomIndexOutOfBoundsException;
 import exceptions.CustomNoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
