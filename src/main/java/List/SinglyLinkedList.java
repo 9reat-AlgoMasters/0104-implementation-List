@@ -12,22 +12,6 @@ public class SinglyLinkedList implements List {
             this.data = data;
             this.next = next;
         }
-
-        public int getData() {
-            return data;
-        }
-
-        public void setData(int data) {
-            this.data = data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
-        }
     }
 
     private Node head;
@@ -49,7 +33,7 @@ public class SinglyLinkedList implements List {
     @Override
     public boolean contains(int num) {
         for(Node node = head; node != null; node = node.next){
-            if(node.getData() == num){
+            if(node.data == num){
                 return true;
             }
         }
@@ -65,14 +49,14 @@ public class SinglyLinkedList implements List {
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
-        return node.getData();
+        return node.data;
     }
     
     public int getFirst() throws CustomNoSuchElementException {
         if(size == 0){
             throw new CustomNoSuchElementException();
         }
-        return head.getData();
+        return head.data;
     }
     
     @Override
@@ -135,7 +119,7 @@ public class SinglyLinkedList implements List {
         }
 
         Node removingNode = prevNode.next;
-        int value = removingNode.getData();
+        int value = removingNode.data;
 
         if(index == size-1){
             //삭제할 노드가 맨끝 노드라면 tail 재설정
@@ -153,7 +137,7 @@ public class SinglyLinkedList implements List {
         if(size == 0){
             throw new CustomNoSuchElementException();
         }
-        int value = head.getData();
+        int value = head.data;
         head = head.next;
         size--;
         if(size == 0){
