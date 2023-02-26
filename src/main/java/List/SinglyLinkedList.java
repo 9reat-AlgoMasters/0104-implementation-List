@@ -36,7 +36,7 @@ public class SinglyLinkedList implements List {
         if(head == null){
             return true;
         }
-        return  true;
+        return  false;
     }
     
     @Override
@@ -53,7 +53,7 @@ public class SinglyLinkedList implements List {
     }
     
     @Override
-    public int get(int index) throws  CustomIndexOutOfBoundsException{
+    public int get(int index) throws CustomIndexOutOfBoundsException{
         if (index>=size || index<0){
             throw new CustomIndexOutOfBoundsException();
         }
@@ -97,6 +97,11 @@ public class SinglyLinkedList implements List {
             head = n;
             return;
         }
+        if(index == 0){
+            Node n = new Node(num,head.next);
+            head = n;
+            return;
+        }
         Node pre = head;
         for (int i = 0; i < index-1; i++) {
             pre = pre.next;
@@ -117,6 +122,7 @@ public class SinglyLinkedList implements List {
         if(index ==0){
             data = head.getData();
             head = null;
+            size-=1;
             return data;
         }
 
@@ -127,6 +133,7 @@ public class SinglyLinkedList implements List {
         Node target = pre.next;
         data = target.getData();
         pre.next = target.next;
+        size-=1;
         return data;
     }
 
@@ -138,9 +145,11 @@ public class SinglyLinkedList implements List {
         int data = head.getData();
         if(head.next == null){
             head = null;
+            size-=1;
             return data;
         }
         head = head.next;
+        size-=1;
         return data;
     }
     
