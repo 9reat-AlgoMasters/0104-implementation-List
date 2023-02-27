@@ -121,7 +121,7 @@ public class SinglyLinkedList implements List {
 
         if(index ==0){
             data = head.getData();
-            head = null;
+            head = head.next;
             size-=1;
             return data;
         }
